@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">AP</string>
+    <string name="enter_food_name">הזן את שם המנה</string>
+    <string name="enter_author_name">הזן את שם המחבר</string>
+    <string name="enter_description">הזן תיאור</string>
+    <string name="enter_ingredients">הזן רכיבים</string>
+    <string name="pick_image">בחר תמונה</string>
+    <string name="preview">תצוגה מקדימה</string>
+    <string name="add_food_confirm">הוסף מנה/אישור</string>
+    <string name="food_image">תמונת מנה</string>
+    <string name="food_name">שם המנה</string>
+    <string name="author_name_unknown">שם המחבר: לא ידוע</string>
+    <string name="ingredients">רכיבים</string>
+    <string name="description">תיאור</string>
+    <string name="delete">מחק</string>
+    <string name="back">חזור</string>
+    <string name="view_details">צפה בפרטים</string>
+    <string name="edit">ערוך</string>
+    <string name="delete_card">מחק כרטיס</string>
+</resources>

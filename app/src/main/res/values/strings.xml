@@ -1,0 +1,21 @@
+<resources>
+    <string name="app_name">AP</string>
+    <string name="enter_food_name">Enter Food Name</string>
+    <string name="enter_author_name">Enter Author Name</string>
+    <string name="enter_description">Enter description</string>
+    <string name="enter_ingredients">Enter ingredients</string>
+    <string name="pick_image">Pick Image</string>
+    <string name="preview">Preview</string>
+    <string name="add_food_confirm">Add Food/Confirm</string>
+    <string name="food_image">Food Image</string>
+    <string name="food_name">Food Name</string>
+    <string name="author_name_unknown">Author Name: Unknown</string>
+    <string name="ingredients">Ingredients</string>
+    <string name="description">Description</string>
+    <string name="delete">Delete</string>
+    <string name="back">Back</string>
+    <string name="view_details">View Details</string>
+    <string name="edit">Edit</string>
+    <string name="delete_card">Delete</string>
+    <string name="fromAdd_To_List">Back</string>
+</resources>
