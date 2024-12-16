@@ -18,4 +18,7 @@
     <string name="view_details">צפה בפרטים</string>
     <string name="edit">ערוך</string>
     <string name="delete_card">מחק כרטיס</string>
+    <string name="fromAdd_To_List">חזור</string>
+
+
 </resources>

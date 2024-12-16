@@ -1,17 +1,20 @@
-<ScrollView
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:fillViewport="true"
 
     xmlns:tools="http://schemas.android.com/tools"
     tools:context="AddItemFragment">
 
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical"
-        android:padding="16dp">
+        android:padding="16dp"
+        android:background="@color/white"
+        >
 
         <!-- Food Name Input -->
         <com.google.android.material.textfield.TextInputLayout
@@ -64,7 +67,7 @@
                 android:inputType="textMultiLine"
                 android:minLines="3"
                 android:gravity="top"
-                android:textColor="@color/coral_red"
+                android:textColor="@color/orange"
                 android:textSize="16sp" />
         </com.google.android.material.textfield.TextInputLayout>
 
@@ -103,8 +106,8 @@
             android:id="@+id/food_image_preview"
             android:layout_width="match_parent"
             android:layout_height="200dp"
-            android:scaleType="centerCrop"
-            android:src="@mipmap/ic_launcher"
+            android:scaleType="centerInside"
+            android:src="@drawable/cookbook"
             android:layout_marginTop="16dp"
             android:contentDescription="@string/preview" />
 
@@ -125,7 +128,7 @@
             android:layout_height="wrap_content"
             android:text="@string/fromAdd_To_List"
             android:layout_marginTop="16dp"
-            android:backgroundTint="@color/bright_orange"
+            android:backgroundTint="@color/orange"
             android:textColor="@android:color/white" />
     </LinearLayout>
 </ScrollView>
