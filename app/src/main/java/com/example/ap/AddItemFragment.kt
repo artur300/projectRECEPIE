@@ -28,13 +28,23 @@ class AddItemFragment : Fragment() {
         }
 
         binding.btnAddFood.setOnClickListener(){
-            val bundle = bundleOf(
+            /* val bundle = bundleOf(
                 "title" to binding.foodNameInput.text.toString(),           // שם האוכל
                 "author" to binding.authorNameInput.text.toString(),       // שם המחבר
                 "description" to binding.foodDescriptionInput.text.toString(), // תיאור
                 "ingredients" to binding.ingredientsDescriptionInput.text.toString() // רכיבים
             )
             findNavController().navigate(R.id.action_addItemFragment_to_allItemsFragment)
+         */
+            val item=Item(binding.foodNameInput.text.toString(),
+                binding.authorNameInput.text.toString(),
+                binding.foodDescriptionInput.text.toString(),
+                binding.ingredientsDescriptionInput.text.toString(),
+                null)
+
+            ItemManager.add(item)
+            findNavController().navigate(R.id.action_addItemFragment_to_allItemsFragment)
+
         }
 
 

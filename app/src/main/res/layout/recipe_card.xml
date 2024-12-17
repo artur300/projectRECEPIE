@@ -8,7 +8,8 @@
     app:cardElevation="8dp"
     app:strokeWidth="2dp"
     app:strokeColor="@color/green"
-    app:cardBackgroundColor="@color/beige">
+    app:cardBackgroundColor="@color/beige"
+    >
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -44,18 +45,6 @@
             android:layout_gravity="center_horizontal"
             android:paddingTop="4dp"
             android:text="Author: Unknown"
-            android:textColor="@color/bright_orange"
-            android:textSize="16sp"
-            android:textStyle="italic" />
-
-        <!-- סטטוס טבעוני -->
-        <TextView
-            android:id="@+id/vegan_status"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center_horizontal"
-            android:paddingTop="4dp"
-            android:text="Vegan: Yes/No"
             android:textColor="@color/bright_orange"
             android:textSize="16sp"
             android:textStyle="italic" />
