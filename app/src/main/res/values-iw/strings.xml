@@ -19,6 +19,20 @@
     <string name="edit">ערוך</string>
     <string name="delete_card">מחק כרטיס</string>
     <string name="fromAdd_To_List">חזור</string>
+    <string name="back_to_card">חזור</string>
+    <string name="delete_view">מחק</string>
+    <string name="ingredients_view">מצרכים</string>
+    <string name="description_view">תיאור</string>
+    <string name="author_name_unknown_view">שם מחבר: לא ידוע</string>
+    <string name="food_name_view">שם המנה</string>
+    <string name="food_image_view">תמונת המנה</string>
+    <string name="steak_platter_card">מנת סטייק</string>
+    <string name="author_unknown_card">מחבר: לא ידוע</string>
+    <string name="view_details_card">צפה בפרטים</string>
+    <string name="edit_card">ערוך</string>
+    <string name="delete_card1">מחק</string>
+    <string name="edit_details">ערוך פרטים</string>
+
 
 
 </resources>
