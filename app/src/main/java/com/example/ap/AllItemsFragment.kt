@@ -32,12 +32,6 @@ private var _binding : AllRecipeListBinding?=null
             }
         }
 
-
-
-
-
-
-
         return binding.root
 
     }

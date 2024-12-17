@@ -17,6 +17,15 @@
             app:exitAnim="@anim/to_left"
             app:popEnterAnim="@anim/from_left"
             app:popExitAnim="@anim/to_right" />
+        <action
+            android:id="@+id/action_allItemsFragment_to_recipeDetailsFragment2"
+            app:destination="@id/recipeDetailsFragment2"
+            app:enterAnim="@anim/from_left"
+            app:exitAnim="@anim/to_right"
+            app:popEnterAnim="@anim/from_right"
+            app:popExitAnim="@anim/to_right"
+            app:popUpTo="@id/my_nav"
+            app:popUpToInclusive="true" />
     </fragment>
     <fragment
         android:id="@+id/addItemFragment"
@@ -31,5 +40,18 @@
             app:popEnterAnim="@anim/from_right"
             app:popExitAnim="@anim/to_left"
             app:popUpTo="@id/my_nav" />
+    </fragment>
+    <fragment
+        android:id="@+id/recipeDetailsFragment2"
+        android:name="com.example.ap.RecipeDetailsFragment"
+        android:label="recipe_details"
+        tools:layout="@layout/recipe_details" >
+        <action
+            android:id="@+id/action_recipeDetailsFragment2_to_allItemsFragment"
+            app:destination="@id/allItemsFragment"
+            app:enterAnim="@anim/from_right"
+            app:exitAnim="@anim/to_left"
+            app:popEnterAnim="@anim/from_left"
+            app:popExitAnim="@anim/to_right" />
     </fragment>
 </navigation>

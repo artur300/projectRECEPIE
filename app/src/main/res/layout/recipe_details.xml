@@ -1,108 +1,158 @@
-<ScrollView
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:padding="16dp">
+    android:background="@color/white"
+    tools:context="RecipeDetailsFragment">
 
-    <LinearLayout
+    <!-- מלבן ירוק עליון -->
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/header"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="vertical">
+        android:layout_height="70dp"
+        android:background="@color/green"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent">
 
-        <!-- Image View -->
-        <ImageView
-            android:id="@+id/food_image"
-            android:layout_width="match_parent"
-            android:layout_height="200dp"
-            android:scaleType="centerCrop"
-            android:layout_marginBottom="16dp"
-            android:contentDescription="Food Image" />
-
-        <!-- Food Name -->
         <TextView
-            android:id="@+id/food_name"
+            android:id="@+id/header_title"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Food Name"
-            android:textSize="24sp"
+            android:layout_marginTop="15dp"
+            android:gravity="center"
+            android:text="Recipe Details"
+            android:textColor="@color/beige"
+            android:fontFamily="@font/logo_font"
+            android:textSize="27sp"
             android:textStyle="bold"
-            android:layout_gravity="center_horizontal"
-            android:layout_marginBottom="8dp"
-            android:textColor="@color/green" />
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
 
-        <!-- Author Name -->
-        <TextView
-            android:id="@+id/author_name"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Author Name: Unknown"
-            android:textSize="18sp"
-            android:textStyle="italic"
-            android:layout_marginBottom="8dp"
-            android:textColor="@color/bright_orange" />
+    <!-- תוכן גלילה -->
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:padding="16dp"
+        android:fillViewport="true"
+        app:layout_constraintTop_toBottomOf="@id/header"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent">
 
-        <!-- Vegan/Non-Vegan -->
-        <TextView
-            android:id="@+id/vegan_status"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Vegan Status: Unknown"
-            android:textSize="18sp"
-            android:layout_marginBottom="8dp"
-            android:textColor="@color/bright_orange" />
-
-        <!-- Ingredients -->
-        <com.google.android.material.textfield.TextInputLayout
-            android:id="@+id/ingredients_layout"
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="Ingredients"
-            style="@style/CustomTextInputLayout"
-            android:layout_marginBottom="16dp">
+            android:orientation="vertical">
 
-            <com.google.android.material.textfield.TextInputEditText
-                android:id="@+id/ingredients"
+            <!-- Image View -->
+            <ImageView
+                android:id="@+id/food_image"
+                android:layout_width="match_parent"
+                android:layout_height="200dp"
+                android:scaleType="centerCrop"
+                android:layout_marginBottom="16dp"
+                android:contentDescription="@string/food_image_view" />
+
+            <!-- Food Name -->
+            <TextView
+                android:id="@+id/food_name"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/food_name_view"
+                android:textSize="24sp"
+                android:textStyle="bold"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginBottom="8dp"
+                android:textColor="@color/green" />
+
+            <!-- Author Name -->
+            <TextView
+                android:id="@+id/author_name"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/author_name_unknown_view"
+                android:textSize="18sp"
+                android:textStyle="italic"
+                android:layout_marginBottom="8dp"
+                android:textColor="@color/bright_orange" />
+
+            <!-- Ingredients -->
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/ingredients_layout"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:inputType="textMultiLine"
-                android:minLines="3"
-                android:focusable="false"
-                android:cursorVisible="false"
-                android:gravity="top"
-                android:textColor="@color/coral_red"
-                android:textSize="16sp" />
-        </com.google.android.material.textfield.TextInputLayout>
+                android:hint="@string/ingredients_view"
+                android:layout_marginBottom="16dp">
 
-        <!-- Food Description -->
-        <com.google.android.material.textfield.TextInputLayout
-            android:id="@+id/food_description_layout"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:hint="Description"
-            style="@style/CustomTextInputLayout">
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/ingredients"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:inputType="textMultiLine"
+                    android:minLines="3"
+                    android:focusable="false"
+                    android:cursorVisible="false"
+                    android:gravity="top"
+                    android:textColor="@color/coral_red"
+                    android:textSize="16sp" />
+            </com.google.android.material.textfield.TextInputLayout>
 
-            <com.google.android.material.textfield.TextInputEditText
-                android:id="@+id/food_description"
+            <!-- Food Description -->
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/food_description_layout"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:inputType="textMultiLine"
-                android:minLines="3"
-                android:focusable="false"
-                android:cursorVisible="false"
-                android:gravity="top"
-                android:textColor="@color/coral_red"
-                android:textSize="16sp" />
-        </com.google.android.material.textfield.TextInputLayout>
+                android:hint="@string/description_view">
 
-        <!-- Delete Button -->
-        <Button
-            android:id="@+id/btn_delete"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Delete"
-            android:layout_marginTop="24dp"
-            android:backgroundTint="@color/coral_red"
-            android:textColor="@android:color/white" />
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/food_description"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:inputType="textMultiLine"
+                    android:minLines="3"
+                    android:focusable="false"
+                    android:cursorVisible="false"
+                    android:gravity="top"
+                    android:textColor="@color/coral_red"
+                    android:textSize="16sp" />
+            </com.google.android.material.textfield.TextInputLayout>
 
-    </LinearLayout>
-</ScrollView>
+            <!-- Delete Button -->
+            <Button
+                android:id="@+id/btn_delete"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/delete_view"
+                android:layout_marginTop="24dp"
+                android:backgroundTint="@color/coral_red"
+                android:textColor="@android:color/white" />
+
+            <!-- Edit Details Button -->
+            <Button
+                android:id="@+id/btn_edit_details"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/edit_details"
+                android:layout_marginTop="24dp"
+                android:backgroundTint="@color/coral_red"
+                android:textColor="@android:color/white" />
+
+            <!-- Back Button -->
+            <Button
+                android:id="@+id/btn_back_to_card"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/back_to_card"
+                android:layout_marginTop="24dp"
+                android:backgroundTint="@color/coral_red"
+                android:textColor="@android:color/white" />
+        </LinearLayout>
+    </ScrollView>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

@@ -32,7 +32,7 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center_horizontal"
             android:paddingTop="8dp"
-            android:text="Steak Platter"
+            android:text="@string/steak_platter_card"
             android:textColor="@color/green"
             android:textSize="18sp"
             android:textStyle="bold" />
@@ -44,7 +44,7 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center_horizontal"
             android:paddingTop="4dp"
-            android:text="Author: Unknown"
+            android:text="@string/author_unknown_card"
             android:textColor="@color/bright_orange"
             android:textSize="16sp"
             android:textStyle="italic" />
@@ -56,7 +56,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginBottom="8dp"
-            android:text="View Details"
+            android:text="@string/view_details_card"
             android:textColor="@color/bright_orange"
             app:cornerRadius="8dp"
             app:strokeColor="@color/bright_orange"
@@ -69,7 +69,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginBottom="8dp"
-            android:text="Edit"
+            android:text="@string/edit_card"
             android:textColor="@color/bright_orange"
             app:cornerRadius="8dp"
             app:strokeColor="@color/bright_orange"
@@ -82,7 +82,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:backgroundTint="@color/coral_red"
-            android:text="Delete"
+            android:text="@string/delete_card1"
             android:textColor="@color/beige"
             app:cornerRadius="8dp" />
 

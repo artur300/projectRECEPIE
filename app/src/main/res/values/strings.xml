@@ -18,4 +18,17 @@
     <string name="edit">Edit</string>
     <string name="delete_card">Delete</string>
     <string name="fromAdd_To_List">Back</string>
+    <string name="back_to_card">Back</string>
+    <string name="delete_view">Delete</string>
+    <string name="ingredients_view">Ingredients</string>
+    <string name="description_view">Description</string>
+    <string name="author_name_unknown_view">Author Name: Unknown</string>
+    <string name="food_name_view">Food Name</string>
+    <string name="food_image_view">Food Image</string>
+    <string name="steak_platter_card">Steak Platter</string>
+    <string name="author_unknown_card">Author: Unknown</string>
+    <string name="view_details_card">View Details</string>
+    <string name="edit_card">Edit</string>
+    <string name="delete_card1">Delete</string>
+    <string name="edit_details">Edit</string>
 </resources>
