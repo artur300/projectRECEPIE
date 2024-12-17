@@ -22,7 +22,7 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="15dp"
             android:gravity="center"
-            android:text="RecipeMaster"
+            android:text="Add Recipe"
             android:textColor="@color/beige"
             android:fontFamily="@font/logo_font"
             android:textSize="27sp"

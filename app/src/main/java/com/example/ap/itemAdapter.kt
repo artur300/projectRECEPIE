@@ -5,6 +5,7 @@ import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.example.ap.databinding.RecipeCardBinding
+import com.bumptech.glide.Glide;
 
 class itemAdapter(val items : List<Item>) : RecyclerView.Adapter<itemAdapter.itemViewHolder>()
 {
@@ -15,8 +16,11 @@ class itemAdapter(val items : List<Item>) : RecyclerView.Adapter<itemAdapter.ite
                  //מזהה ב-class           מזהה ב-xml
             binding.foodName.text=item.foodName
             binding.authorName.text=item.authorName
-            //תמונה
-
+            Glide.with(binding.root.context)
+                .load(item.imageUri)
+                .diskCacheStrategy(com.bumptech.glide.load.engine.DiskCacheStrategy.DATA)
+                .downsample(com.bumptech.glide.load.resource.bitmap.DownsampleStrategy.AT_MOST)
+                .into(binding.foodImage)
         }
     }
 

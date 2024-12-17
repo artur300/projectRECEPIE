@@ -1,11 +1,14 @@
 package com.example.ap
 
-data class Item (
-    val foodName: String,            // שם המתכון
-    val authorName: String,          // שם המחבר
-    val description: String,         // תיאור המתכון
-    val ingredients: String,         // רכיבים
-    val imageUri: String? = null     // כתובת התמונה (רשות)
+import android.net.Uri
+
+data class Item(
+    val foodName: String,
+    val authorName: String,
+    val description: String,
+    val ingredients: String,
+    val imageUri: Uri? = null
+
 )
 
 
