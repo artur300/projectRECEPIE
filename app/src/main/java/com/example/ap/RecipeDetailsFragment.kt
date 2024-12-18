@@ -41,6 +41,17 @@ class RecipeDetailsFragment : Fragment() {
                 .into(binding.foodImage)
         }
 
+
+        // מחיקת הפריט
+        binding.btnDelete.setOnClickListener {
+            item?.let { currentItem ->
+                ItemManager.items.remove(currentItem)  // מסיר את האובייקט מהרשימה
+                findNavController().navigate(R.id.action_recipeDetailsFragment2_to_allItemsFragment)
+            }
+
+        }
+
+
         // כפתור חזרה אחורה
         binding.btnBackToCard.setOnClickListener(){
             findNavController().navigate(R.id.action_recipeDetailsFragment2_to_allItemsFragment)

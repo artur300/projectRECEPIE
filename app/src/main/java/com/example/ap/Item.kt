@@ -25,7 +25,7 @@ object ItemManager {
         items.add(item)
     }
 
-    fun remove(index: Int) {
-        items.removeAt(index)
+    fun remove(item: Item) {
+        items.remove(item)  // מסיר את האובייקט מהרשימה
     }
 }

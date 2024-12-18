@@ -9,23 +9,28 @@ import com.example.ap.databinding.RecipeCardBinding
 import com.bumptech.glide.Glide
 
 class ItemAdapter(
-    private val items: List<Item>
+    private val items: MutableList<Item>, // MutableList כדי שנוכל לשנות את הרשימה
+    private val onItemDeleted: () -> Unit // פונקציה לעדכון מחיקה מבחוץ
 ) : RecyclerView.Adapter<ItemAdapter.ItemViewHolder>() {
 
     class ItemViewHolder(private val binding: RecipeCardBinding) :
         RecyclerView.ViewHolder(binding.root) {
 
-        fun bind(item: Item) {
-            // הצגת נתונים בכרטיסיה
+        fun bind(item: Item, onDelete: () -> Unit) {
+            // מציג את הנתונים
             binding.foodName.text = item.foodName
             binding.authorName.text = item.authorName
 
             Glide.with(binding.root.context)
                 .load(item.imageUri)
-                .diskCacheStrategy(com.bumptech.glide.load.engine.DiskCacheStrategy.DATA)
                 .into(binding.foodImage)
 
-            // ניווט למסך הפרטים בלחיצה על הכפתור "More Details"
+            // פעולה לכפתור מחיקה
+            binding.btnDelete.setOnClickListener {
+                onDelete()
+            }
+
+            // ניווט לפרטי הכרטיסייה
             binding.btnViewDetails.setOnClickListener { view ->
                 val bundle = Bundle().apply {
                     putParcelable("item", item)
@@ -41,14 +46,18 @@ class ItemAdapter(
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int) =
         ItemViewHolder(
             RecipeCardBinding.inflate(
-                LayoutInflater.from(parent.context),
-                parent,
-                false
+                LayoutInflater.from(parent.context), parent, false
             )
         )
 
     override fun onBindViewHolder(holder: ItemViewHolder, position: Int) {
-        holder.bind(items[position])
+        holder.bind(items[position]) {
+            // פעולת המחיקה
+            val deletedItem = items[position]
+            ItemManager.remove(deletedItem)
+            notifyItemRemoved(position)
+            onItemDeleted()
+        }
     }
 
     override fun getItemCount() = items.size

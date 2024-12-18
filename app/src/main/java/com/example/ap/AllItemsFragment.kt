@@ -47,7 +47,9 @@ private var _binding : AllRecipeListBinding?=null
 
 
 
-        binding.recyclerView.adapter = ItemAdapter(ItemManager.items)
+        binding.recyclerView.adapter = ItemAdapter(ItemManager.items){
+            binding.recyclerView.adapter?.notifyDataSetChanged()
+        }
         binding.recyclerView.layoutManager = GridLayoutManager(requireContext(), 1)
 
     }
