@@ -28,11 +28,7 @@ class ItemAdapter(
             // ניווט למסך הפרטים בלחיצה על הכפתור "More Details"
             binding.btnViewDetails.setOnClickListener { view ->
                 val bundle = Bundle().apply {
-                    putString("foodName", item.foodName)
-                    putString("authorName", item.authorName)
-                    putString("description", item.description)
-                    putString("ingredients", item.ingredients)
-                    putString("imageUri", item.imageUri?.toString())
+                    putParcelable("item", item)
                 }
                 view.findNavController().navigate(
                     R.id.action_allItemsFragment_to_recipeDetailsFragment2,

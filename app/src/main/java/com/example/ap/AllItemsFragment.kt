@@ -11,6 +11,8 @@ import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.ap.databinding.AllRecipeListBinding
 import com.example.menu.utils.add_button_animation
+import android.os.Parcelable
+import kotlinx.parcelize.Parcelize
 
 class AllItemsFragment : Fragment() {
 

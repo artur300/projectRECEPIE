@@ -1,15 +1,15 @@
 package com.example.ap
 
-import android.net.Uri
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
+import androidx.navigation.fragment.findNavController
 import com.bumptech.glide.Glide
 import com.example.ap.databinding.RecipeDetailsBinding
-import androidx.navigation.fragment.findNavController
 
+@Suppress("DEPRECATION")
 class RecipeDetailsFragment : Fragment() {
 
     private var _binding: RecipeDetailsBinding? = null
@@ -21,29 +21,30 @@ class RecipeDetailsFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View {
         _binding = RecipeDetailsBinding.inflate(inflater, container, false)
+        return binding.root
+    }
 
-        // קבלת המידע מה-Bundle
-        arguments?.let {
-            binding.foodName.text = it.getString("foodName")
-            binding.authorName.text = it.getString("authorName")
-            binding.foodDescription.setText(it.getString("description"))
-            binding.ingredients.setText(it.getString("ingredients"))
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
 
-            val imageUriString = it.getString("imageUri")
-            val imageUri = imageUriString?.let { Uri.parse(it) }
-            if (imageUri != null) {
-                Glide.with(this)
-                    .load(imageUri)
-                    .into(binding.foodImage)
-            }
+        // קבלת האובייקט שהועבר
+        //@Suppress("DEPRECATION") on this fragment!!!!!
+        val item: Item? = arguments?.getParcelable("item")
+
+        item?.let {
+            binding.foodName.text = it.foodName
+            binding.authorName.text = it.authorName
+            binding.ingredients.setText(it.ingredients)
+            binding.foodDescription.setText(it.description)
+            Glide.with(this)
+                .load(it.imageUri)
+                .into(binding.foodImage)
         }
 
-        // כפתור חזרה
+        // כפתור חזרה אחורה
         binding.btnBackToCard.setOnClickListener(){
-            findNavController().navigate(R.id.action_recipeDetailsFragment2_to_allItemsFragment)}
-
-
-            return binding.root
+            findNavController().navigate(R.id.action_recipeDetailsFragment2_to_allItemsFragment)
+        }
     }
 
     override fun onDestroyView() {
@@ -51,7 +52,4 @@ class RecipeDetailsFragment : Fragment() {
         _binding = null
     }
 }
-
-
-
 
