@@ -31,4 +31,5 @@
     <string name="edit_card">Edit</string>
     <string name="delete_card1">Delete</string>
     <string name="edit_details">Edit</string>
+    <string name="image_too_large">The image is too large (maximum 2MB). Please select a smaller image.</string>
 </resources>

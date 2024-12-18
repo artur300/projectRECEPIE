@@ -32,7 +32,7 @@
     <string name="edit_card">ערוך</string>
     <string name="delete_card1">מחק</string>
     <string name="edit_details">ערוך פרטים</string>
-
+    <string name="image_too_large">התמונה גדולה מדי (מקסימום 2MB). בחר תמונה קטנה יותר.</string>
 
 
 </resources>

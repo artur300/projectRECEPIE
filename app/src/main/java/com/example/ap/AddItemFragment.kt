@@ -11,7 +11,7 @@ import androidx.activity.result.contract.ActivityResultContracts
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
 import com.example.ap.databinding.AddRecipeBinding
-
+import android.widget.Toast
 
 
 class AddItemFragment : Fragment() {
@@ -24,13 +24,25 @@ class AddItemFragment : Fragment() {
     val pickImageLauncher: ActivityResultLauncher<Array<String>> =
         registerForActivityResult(ActivityResultContracts.OpenDocument()) { uri: Uri? ->
             uri?.let {
-                binding.foodImagePreview.setImageURI(uri)
-                requireActivity().contentResolver.takePersistableUriPermission(
-                    uri, Intent.FLAG_GRANT_READ_URI_PERMISSION
-                )
-                imageUri = uri
+                val fileSize = requireActivity().contentResolver.openAssetFileDescriptor(it, "r")?.length ?: 0
+
+                val maxSize = 2 * 1024 * 1024
+                if (fileSize > maxSize) {
+                    Toast.makeText(
+                        requireContext(),
+                        getString(R.string.image_too_large),
+                        Toast.LENGTH_LONG
+                    ).show()
+                } else {
+                    binding.foodImagePreview.setImageURI(uri)
+                    requireActivity().contentResolver.takePersistableUriPermission(
+                        uri, Intent.FLAG_GRANT_READ_URI_PERMISSION
+                    )
+                    imageUri = uri
+                }
             }
         }
+
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?
