@@ -16,16 +16,14 @@ import com.example.ap.databinding.AddRecipeBinding
 
 class AddItemFragment : Fragment() {
 
-    private var _binding : AddRecipeBinding?=null
-    private  val binding get() =_binding!!
-    private var imageUri:Uri?=null
+    private var _binding: AddRecipeBinding? = null
+    private val binding get() = _binding!!
+    private var imageUri: Uri? = null
+    private var itemToEdit: Item? = null
 
-
-        //"אני מבקש מהמשתמש קובץ  אם יש קובץ, אני מציג אותו בתמונה  שומר את ההרשאה כדי שהאפליקציה תוכל להשתמש בו אחר כך.
-    //---------------------------------------------------------------
     val pickImageLauncher: ActivityResultLauncher<Array<String>> =
-        registerForActivityResult(ActivityResultContracts.OpenDocument()) { it: Uri? ->
-            it?.let { uri ->
+        registerForActivityResult(ActivityResultContracts.OpenDocument()) { uri: Uri? ->
+            uri?.let {
                 binding.foodImagePreview.setImageURI(uri)
                 requireActivity().contentResolver.takePersistableUriPermission(
                     uri, Intent.FLAG_GRANT_READ_URI_PERMISSION
@@ -33,51 +31,65 @@ class AddItemFragment : Fragment() {
                 imageUri = uri
             }
         }
-//-------------------------------------------------------------------------------------
-
 
     override fun onCreateView(
-        inflater: LayoutInflater,
-        container: ViewGroup?,
-        savedInstanceState: Bundle?
-    ): View? {
-
-        _binding=AddRecipeBinding.inflate(inflater,container,false)
-        //מהוספת פריט בחזרה לרשימה ראשית
-        binding.btnBack.setOnClickListener(){
-            findNavController().navigate(R.id.action_addItemFragment_to_allItemsFragment)
-        }
-
-        binding.btnAddFood.setOnClickListener(){
-
-            val item=Item(binding.foodNameInput.text.toString(),
-                binding.authorNameInput.text.toString(),
-                binding.foodDescriptionInput.text.toString(),
-                binding.ingredientsDescriptionInput.text.toString(),
-                imageUri)
-
-            ItemManager.add(item)
-            findNavController().navigate(R.id.action_addItemFragment_to_allItemsFragment)
-
-        }
-
-binding.btnPickImage.setOnClickListener{
-    pickImageLauncher.launch(arrayOf("image/*"))
-}
+        inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?
+    ): View {
+        _binding = AddRecipeBinding.inflate(inflater, container, false)
         return binding.root
     }
 
-
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-    }
 
+        // קבלת הפריט במצב עריכה
+        itemToEdit = arguments?.getParcelable("item")
+        itemToEdit?.let { item ->
+            binding.foodNameInput.setText(item.foodName)
+            binding.authorNameInput.setText(item.authorName)
+            binding.foodDescriptionInput.setText(item.description)
+            binding.ingredientsDescriptionInput.setText(item.ingredients)
+            imageUri = item.imageUri
+            binding.foodImagePreview.setImageURI(item.imageUri)
+        }
+
+        binding.btnAddFood.text = if (itemToEdit == null) "הוסף מתכון" else "עדכן מתכון"
+
+        // שמירת השינויים או הוספה
+        binding.btnAddFood.setOnClickListener {
+            val newItem = Item(
+                binding.foodNameInput.text.toString(),
+                binding.authorNameInput.text.toString(),
+                binding.foodDescriptionInput.text.toString(),
+                binding.ingredientsDescriptionInput.text.toString(),
+                imageUri
+            )
+
+            if (itemToEdit == null) {
+                // מצב הוספה
+                ItemManager.add(newItem)
+            } else {
+                // מצב עדכון
+                val index = ItemManager.items.indexOf(itemToEdit)
+                if (index != -1) {
+                    ItemManager.items[index] = newItem
+                }
+            }
+
+            findNavController().navigate(R.id.action_addItemFragment_to_allItemsFragment)
+        }
+
+        binding.btnPickImage.setOnClickListener {
+            pickImageLauncher.launch(arrayOf("image/*"))
+        }
+
+        binding.btnBack.setOnClickListener {
+            findNavController().navigate(R.id.action_addItemFragment_to_allItemsFragment)
+        }
+    }
 
     override fun onDestroyView() {
         super.onDestroyView()
-        _binding=null
+        _binding = null
     }
-
-
-
 }

@@ -9,15 +9,14 @@ import com.example.ap.databinding.RecipeCardBinding
 import com.bumptech.glide.Glide
 
 class ItemAdapter(
-    private val items: MutableList<Item>, // MutableList כדי שנוכל לשנות את הרשימה
-    private val onItemDeleted: () -> Unit // פונקציה לעדכון מחיקה מבחוץ
+    private val items: MutableList<Item>,
+    private val onItemDeleted: () -> Unit
 ) : RecyclerView.Adapter<ItemAdapter.ItemViewHolder>() {
 
     class ItemViewHolder(private val binding: RecipeCardBinding) :
         RecyclerView.ViewHolder(binding.root) {
 
         fun bind(item: Item, onDelete: () -> Unit) {
-            // מציג את הנתונים
             binding.foodName.text = item.foodName
             binding.authorName.text = item.authorName
 
@@ -25,12 +24,31 @@ class ItemAdapter(
                 .load(item.imageUri)
                 .into(binding.foodImage)
 
-            // פעולה לכפתור מחיקה
             binding.btnDelete.setOnClickListener {
                 onDelete()
             }
 
-            // ניווט לפרטי הכרטיסייה
+
+
+
+            binding.btnEdit.setOnClickListener { view ->
+                val bundle = Bundle().apply {
+                    putParcelable("item", item) // מעבירים את הפריט לעריכה
+                }
+                view.findNavController().navigate(
+                    R.id.action_allItemsFragment_to_addItemFragment,
+                    bundle
+                )
+            }
+
+
+
+
+
+
+
+
+
             binding.btnViewDetails.setOnClickListener { view ->
                 val bundle = Bundle().apply {
                     putParcelable("item", item)
@@ -52,7 +70,6 @@ class ItemAdapter(
 
     override fun onBindViewHolder(holder: ItemViewHolder, position: Int) {
         holder.bind(items[position]) {
-            // פעולת המחיקה
             val deletedItem = items[position]
             ItemManager.remove(deletedItem)
             notifyItemRemoved(position)

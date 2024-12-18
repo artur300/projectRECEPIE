@@ -26,6 +26,6 @@ object ItemManager {
     }
 
     fun remove(item: Item) {
-        items.remove(item)  // מסיר את האובייקט מהרשימה
+        items.remove(item)
     }
 }

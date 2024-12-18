@@ -53,5 +53,8 @@
             app:exitAnim="@anim/to_right"
             app:popEnterAnim="@anim/from_right"
             app:popExitAnim="@anim/to_left" />
+        <action
+            android:id="@+id/action_recipeDetailsFragment2_to_addItemFragment"
+            app:destination="@id/addItemFragment" />
     </fragment>
 </navigation>

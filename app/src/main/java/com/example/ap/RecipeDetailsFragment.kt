@@ -42,17 +42,33 @@ class RecipeDetailsFragment : Fragment() {
         }
 
 
-        // מחיקת הפריט
+
+
+        binding.btnEditDetails.setOnClickListener {
+            val bundle = Bundle().apply {
+                putParcelable("item", item) // מעבירים את הפריט לעריכה
+            }
+            findNavController().navigate(
+                R.id.action_recipeDetailsFragment2_to_addItemFragment,
+                bundle
+            )
+        }
+
+
+
+
+
+
+
         binding.btnDelete.setOnClickListener {
             item?.let { currentItem ->
-                ItemManager.items.remove(currentItem)  // מסיר את האובייקט מהרשימה
+                ItemManager.items.remove(currentItem)
                 findNavController().navigate(R.id.action_recipeDetailsFragment2_to_allItemsFragment)
             }
 
         }
 
 
-        // כפתור חזרה אחורה
         binding.btnBackToCard.setOnClickListener(){
             findNavController().navigate(R.id.action_recipeDetailsFragment2_to_allItemsFragment)
         }
