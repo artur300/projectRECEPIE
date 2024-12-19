@@ -7,7 +7,7 @@
 
     <fragment
         android:id="@+id/allItemsFragment"
-        android:name="com.example.ap.AllItemsFragment"
+        android:name="com.example.ap.UI.all.AllItemsFragment"
         android:label="all_recipe_list"
         tools:layout="@layout/all_recipe_list" >
         <action
@@ -29,7 +29,7 @@
     </fragment>
     <fragment
         android:id="@+id/addItemFragment"
-        android:name="com.example.ap.AddItemFragment"
+        android:name="com.example.ap.UI.add.AddItemFragment"
         android:label="add_recipe"
         tools:layout="@layout/add_recipe" >
         <action
@@ -43,7 +43,7 @@
     </fragment>
     <fragment
         android:id="@+id/recipeDetailsFragment2"
-        android:name="com.example.ap.RecipeDetailsFragment"
+        android:name="com.example.ap.UI.single.RecipeDetailsFragment"
         android:label="recipe_details"
         tools:layout="@layout/recipe_details" >
         <action

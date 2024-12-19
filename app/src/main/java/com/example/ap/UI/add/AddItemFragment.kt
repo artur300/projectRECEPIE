@@ -1,4 +1,4 @@
-package com.example.ap
+package com.example.ap.UI.add
 
 import android.content.Intent
 import android.net.Uri
@@ -12,6 +12,9 @@ import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
 import com.example.ap.databinding.AddRecipeBinding
 import android.widget.Toast
+import com.example.ap.data.model.Item
+import com.example.ap.data.model.ItemManager
+import com.example.ap.R
 
 
 class AddItemFragment : Fragment() {

@@ -1,4 +1,4 @@
-package com.example.ap
+package com.example.ap.UI.all
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -7,6 +7,9 @@ import androidx.recyclerview.widget.RecyclerView
 import androidx.navigation.findNavController
 import com.example.ap.databinding.RecipeCardBinding
 import com.bumptech.glide.Glide
+import com.example.ap.data.model.Item
+import com.example.ap.data.model.ItemManager
+import com.example.ap.R
 
 class ItemAdapter(
     private val items: MutableList<Item>,

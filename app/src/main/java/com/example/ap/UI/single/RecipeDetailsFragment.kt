@@ -1,4 +1,4 @@
-package com.example.ap
+package com.example.ap.UI.single
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -7,6 +7,9 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
 import com.bumptech.glide.Glide
+import com.example.ap.data.model.Item
+import com.example.ap.data.model.ItemManager
+import com.example.ap.R
 import com.example.ap.databinding.RecipeDetailsBinding
 
 @Suppress("DEPRECATION")
