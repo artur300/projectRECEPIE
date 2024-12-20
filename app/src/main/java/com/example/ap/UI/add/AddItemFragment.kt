@@ -12,9 +12,10 @@ import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
 import com.example.ap.databinding.AddRecipeBinding
 import android.widget.Toast
+import androidx.fragment.app.activityViewModels
 import com.example.ap.data.model.Item
-import com.example.ap.data.model.ItemManager
 import com.example.ap.R
+import com.example.ap.UI.itemViewModel
 
 
 class AddItemFragment : Fragment() {
@@ -23,6 +24,10 @@ class AddItemFragment : Fragment() {
     private val binding get() = _binding!!
     private var imageUri: Uri? = null
     private var itemToEdit: Item? = null
+    private val viewModel : itemViewModel by activityViewModels()
+
+
+
 
     val pickImageLauncher: ActivityResultLauncher<Array<String>> =
         registerForActivityResult(ActivityResultContracts.OpenDocument()) { uri: Uri? ->
