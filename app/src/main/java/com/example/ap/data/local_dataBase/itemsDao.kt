@@ -27,8 +27,9 @@ interface itemsDao {
     fun getItems():LiveData<List<Item>>
 
 
-    @Query(value = "SELECT * FROM itemsRecipe WHERE id LIKE :id")
+    @Query(value = "SELECT * FROM itemsRecipe WHERE id = :id")
     fun getItem(id: Int): Item
+
 
 }
 
