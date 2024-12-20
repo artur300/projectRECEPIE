@@ -5,11 +5,12 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
+import androidx.fragment.app.activityViewModels
 import androidx.navigation.fragment.findNavController
 import com.bumptech.glide.Glide
 import com.example.ap.data.model.Item
-import com.example.ap.data.model.ItemManager
 import com.example.ap.R
+import com.example.ap.UI.itemViewModel
 import com.example.ap.databinding.RecipeDetailsBinding
 
 @Suppress("DEPRECATION")
@@ -17,6 +18,7 @@ class RecipeDetailsFragment : Fragment() {
 
     private var _binding: RecipeDetailsBinding? = null
     private val binding get() = _binding!!
+    private val viewModel : itemViewModel by activityViewModels()
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -47,29 +49,18 @@ class RecipeDetailsFragment : Fragment() {
 
 
 
-        binding.btnEditDetails.setOnClickListener {
-            val bundle = Bundle().apply {
-                putParcelable("item", item) // מעבירים את הפריט לעריכה
-            }
-            findNavController().navigate(
-                R.id.action_recipeDetailsFragment2_to_addItemFragment,
-                bundle
-            )
-        }
-
-
-
-
-
-
-
         binding.btnDelete.setOnClickListener {
-            item?.let { currentItem ->
-                ItemManager.items.remove(currentItem)
+            item?.let {
+                viewModel.deleteItem(it)
                 findNavController().navigate(R.id.action_recipeDetailsFragment2_to_allItemsFragment)
             }
-
         }
+
+        binding.btnEditDetails.setOnClickListener {
+            val bundle = Bundle().apply { putParcelable("item", item) }
+            findNavController().navigate(R.id.action_recipeDetailsFragment2_to_addItemFragment, bundle)
+        }
+
 
 
         binding.btnBackToCard.setOnClickListener(){

@@ -69,8 +69,8 @@ class AddItemFragment : Fragment() {
             binding.authorNameInput.setText(item.authorName)
             binding.foodDescriptionInput.setText(item.description)
             binding.ingredientsDescriptionInput.setText(item.ingredients)
-            imageUri = item.imageUri
-            binding.foodImagePreview.setImageURI(item.imageUri)
+            imageUri = item.imageUri?.let { Uri.parse(it) }
+            binding.foodImagePreview.setImageURI(imageUri)
         }
 
         binding.btnAddFood.text = if (itemToEdit == null) "הוסף מתכון" else "עדכן מתכון"
@@ -82,18 +82,14 @@ class AddItemFragment : Fragment() {
                 binding.authorNameInput.text.toString(),
                 binding.foodDescriptionInput.text.toString(),
                 binding.ingredientsDescriptionInput.text.toString(),
-                imageUri
+                imageUri?.toString()
             )
 
             if (itemToEdit == null) {
-                // מצב הוספה
-                ItemManager.add(newItem)
+                viewModel.addItem(newItem)
             } else {
-                // מצב עדכון
-                val index = ItemManager.items.indexOf(itemToEdit)
-                if (index != -1) {
-                    ItemManager.items[index] = newItem
-                }
+                viewModel.deleteItem(itemToEdit!!) // מחיקת הפריט הישן
+                viewModel.addItem(newItem) // הוספת הפריט המעודכן
             }
 
             findNavController().navigate(R.id.action_addItemFragment_to_allItemsFragment)

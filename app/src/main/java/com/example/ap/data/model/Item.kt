@@ -19,9 +19,9 @@ data class Item(
     @ColumnInfo(name = "Recipe_ingredients")
     val ingredients: String,
     @ColumnInfo(name = "Recipe_image")
-    val imageUri: Uri? = null
+    val imageUri: String? = null // שונה ל-String
 ) : Parcelable {
 
     @PrimaryKey(autoGenerate = true)
-    var id:Int=0
+    var id: Int = 0
 }

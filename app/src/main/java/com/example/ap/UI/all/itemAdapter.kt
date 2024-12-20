@@ -1,25 +1,24 @@
 package com.example.ap.UI.all
 
-import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
-import androidx.navigation.findNavController
 import com.example.ap.databinding.RecipeCardBinding
 import com.bumptech.glide.Glide
 import com.example.ap.data.model.Item
-import com.example.ap.data.model.ItemManager
-import com.example.ap.R
+
 
 class ItemAdapter(
-    private val items: MutableList<Item>,
-    private val onItemDeleted: () -> Unit
+    private val items: List<Item>,
+    private val onEdit: (Item) -> Unit,
+    private val onDelete: (Item) -> Unit,
+    private val onDetails: (Item) -> Unit
 ) : RecyclerView.Adapter<ItemAdapter.ItemViewHolder>() {
 
     class ItemViewHolder(private val binding: RecipeCardBinding) :
         RecyclerView.ViewHolder(binding.root) {
 
-        fun bind(item: Item, onDelete: () -> Unit) {
+        fun bind(item: Item, onEdit: (Item) -> Unit, onDelete: (Item) -> Unit, onDetails: (Item) -> Unit) {
             binding.foodName.text = item.foodName
             binding.authorName.text = item.authorName
 
@@ -27,39 +26,16 @@ class ItemAdapter(
                 .load(item.imageUri)
                 .into(binding.foodImage)
 
+            binding.btnEdit.setOnClickListener {
+                onEdit(item)
+            }
+
             binding.btnDelete.setOnClickListener {
-                onDelete()
+                onDelete(item)
             }
 
-
-
-
-            binding.btnEdit.setOnClickListener { view ->
-                val bundle = Bundle().apply {
-                    putParcelable("item", item) // מעבירים את הפריט לעריכה
-                }
-                view.findNavController().navigate(
-                    R.id.action_allItemsFragment_to_addItemFragment,
-                    bundle
-                )
-            }
-
-
-
-
-
-
-
-
-
-            binding.btnViewDetails.setOnClickListener { view ->
-                val bundle = Bundle().apply {
-                    putParcelable("item", item)
-                }
-                view.findNavController().navigate(
-                    R.id.action_allItemsFragment_to_recipeDetailsFragment2,
-                    bundle
-                )
+            binding.btnViewDetails.setOnClickListener {
+                onDetails(item)
             }
         }
     }
@@ -72,12 +48,7 @@ class ItemAdapter(
         )
 
     override fun onBindViewHolder(holder: ItemViewHolder, position: Int) {
-        holder.bind(items[position]) {
-            val deletedItem = items[position]
-            ItemManager.remove(deletedItem)
-            notifyItemRemoved(position)
-            onItemDeleted()
-        }
+        holder.bind(items[position], onEdit, onDelete, onDetails)
     }
 
     override fun getItemCount() = items.size
