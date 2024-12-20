@@ -7,13 +7,11 @@ import com.example.ap.databinding.RecipeCardBinding
 import com.bumptech.glide.Glide
 import com.example.ap.data.model.Item
 
-
 class ItemAdapter(
-    private val items: List<Item>,
     private val onEdit: (Item) -> Unit,
     private val onDelete: (Item) -> Unit,
     private val onDetails: (Item) -> Unit
-) : RecyclerView.Adapter<ItemAdapter.ItemViewHolder>() {
+) : androidx.recyclerview.widget.ListAdapter<Item, ItemAdapter.ItemViewHolder>(ItemDiffCallback()) {
 
     class ItemViewHolder(private val binding: RecipeCardBinding) :
         RecyclerView.ViewHolder(binding.root) {
@@ -48,8 +46,9 @@ class ItemAdapter(
         )
 
     override fun onBindViewHolder(holder: ItemViewHolder, position: Int) {
-        holder.bind(items[position], onEdit, onDelete, onDetails)
+        holder.bind(getItem(position), onEdit, onDelete, onDetails) // השתמש ב-getItem
     }
-
-    override fun getItemCount() = items.size
 }
+
+
+
