@@ -1,3 +1,5 @@
+@file:Suppress("SpellCheckingInspection") // ביטול בדיקת שגיאות כתיב בקובץ
+
 package com.example.ap.UI
 
 import android.app.Application
@@ -6,33 +8,30 @@ import androidx.lifecycle.LiveData
 import com.example.ap.data.model.Item
 import com.example.ap.data.repository.ItemRepository
 
-//---------------temp
+//-------------------- זמני --------------------
 import androidx.lifecycle.viewModelScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
-//--------------temp
-
+//-------------------- זמני --------------------
 
 class itemViewModel(application: Application): AndroidViewModel(application) {
 
-    private  val repository=ItemRepository(application)
+    // יצירת אובייקט של המחלקה ItemRepository לניהול הנתונים.
+    private val repository = ItemRepository(application)
 
-    val items : LiveData<List<Item>>?=repository.getItems()
+    // משתנה שצופה בשינויים ברשימת הפריטים (LiveData).
+    val items: LiveData<List<Item>>? = repository.getItems()
 
+    // פונקציה להוספת פריט חדש.
     fun addItem(item: Item) {
-        //---temp
-        viewModelScope.launch(Dispatchers.IO)
-        //--------
-
-        {
+        //--- שימוש זמני בקורוטינה להפעלת הפעולה ברקע ---
+        viewModelScope.launch(Dispatchers.IO) {
             repository.addItem(item)
         }
     }
 
-
-    fun deleteItem(item: Item){
+    // פונקציה למחיקת פריט.
+    fun deleteItem(item: Item) {
         repository.deleteItem(item)
     }
-
-
 }
