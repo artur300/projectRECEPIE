@@ -2,6 +2,7 @@
 
 package com.example.ap.UI.single
 
+import android.content.Intent
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -12,6 +13,7 @@ import androidx.navigation.fragment.findNavController
 import com.bumptech.glide.Glide
 import com.example.ap.data.model.Item
 import com.example.ap.R
+import com.example.ap.UI.add.add_button_animation
 import com.example.ap.UI.itemViewModel
 import com.example.ap.databinding.RecipeDetailsBinding
 
@@ -46,7 +48,11 @@ class RecipeDetailsFragment : Fragment() {
         // מילוי הפרטים בתצוגה אם קיים פריט.
         item?.let {
             binding.foodName.text = it.foodName
-            binding.authorName.text = it.authorName
+
+            val context = binding.root.context
+            val author = item.authorName.ifEmpty { R.string.Unknown_message }
+            binding.authorName.text = context.getString(R.string.author_unknown_card, author)
+
             binding.ingredients.setText(it.ingredients)
             binding.foodDescription.setText(it.description)
 
@@ -74,6 +80,41 @@ class RecipeDetailsFragment : Fragment() {
         binding.btnBackToCard.setOnClickListener {
             findNavController().navigate(R.id.action_recipeDetailsFragment2_to_allItemsFragment)
         }
+
+
+
+
+
+
+        binding.btnShare.setOnClickListener {view ->
+            add_button_animation.scaleView(view)
+            item?.let {
+                val shareText = """
+            🥘 ${it.foodName}
+            
+            👨‍🍳 ${getString(R.string.author_unknown_card, it.authorName)}
+            
+            📋 ${getString(R.string.ingredients_view)}: ${it.ingredients}
+            
+            📝 ${getString(R.string.description_view)}: ${it.description}
+        """.trimIndent()
+
+                val shareIntent = Intent().apply {
+                    action = Intent.ACTION_SEND
+                    putExtra(Intent.EXTRA_TEXT, shareText)
+                    type = "text/plain"
+                }
+
+                // הפעלת כוונת השיתוף
+                startActivity(Intent.createChooser(shareIntent, getString(R.string.share)))
+            }
+        }
+
+
+
+
+
+
     }
 
     // ניקוי ה-Binding למניעת דליפות זיכרון.

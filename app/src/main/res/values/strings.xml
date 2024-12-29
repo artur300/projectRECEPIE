@@ -26,11 +26,13 @@
     <string name="food_name_view">Food Name</string>
     <string name="food_image_view">Food Image</string>
     <string name="steak_platter_card">Steak Platter</string>
-    <string name="author_unknown_card">Author: Unknown</string>
+    <string name="author_unknown_card">Author Name: %s</string>
     <string name="view_details_card">View Details</string>
     <string name="edit_card">Edit</string>
     <string name="delete_card1">Delete</string>
     <string name="edit_details">Edit</string>
     <string name="image_too_large">The image is too large (maximum 2MB). Please select a smaller image.</string>
     <string name="fill_all_fields_message">fill all fields</string>
+    <string name="Unknown_message">Unknown</string>
+    <string name="share">share</string>
 </resources>

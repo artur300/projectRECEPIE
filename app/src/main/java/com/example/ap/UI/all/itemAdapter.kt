@@ -7,6 +7,7 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.example.ap.databinding.RecipeCardBinding
 import com.bumptech.glide.Glide
+import com.example.ap.R
 import com.example.ap.data.model.Item
 
 // ItemAdapter: מתאם לרשימה שמציג את פריטי המתכונים ב-RecyclerView.
@@ -22,9 +23,11 @@ class ItemAdapter(
 
         // פונקציה שמקשרת את הנתונים של הפריט לתצוגת הכרטיס.
         fun bind(item: Item, onEdit: (Item) -> Unit, onDelete: (Item) -> Unit, onDetails: (Item) -> Unit) {
+            val context = binding.root.context
             // הגדרת שם המתכון ושם המחבר.
             binding.foodName.text = item.foodName
-            binding.authorName.text = item.authorName
+            val author = item.authorName.ifEmpty { R.string.Unknown_message }
+            binding.authorName.text = context.getString(R.string.author_unknown_card, author)
 
             // טעינת תמונת המתכון (אם קיימת) באמצעות Glide.
             Glide.with(binding.root.context)

@@ -34,7 +34,7 @@
             android:paddingTop="8dp"
             android:text="@string/steak_platter_card"
             android:textColor="@color/green"
-            android:textSize="18sp"
+            android:textSize="28sp"
             android:textStyle="bold" />
 
         <!-- שם המחבר -->
@@ -43,6 +43,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center_horizontal"
+            android:layout_marginBottom="8dp"
             android:paddingTop="4dp"
             android:text="@string/author_unknown_card"
             android:textColor="@color/bright_orange"

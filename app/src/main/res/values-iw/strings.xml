@@ -27,13 +27,13 @@
     <string name="food_name_view">שם המנה</string>
     <string name="food_image_view">תמונת המנה</string>
     <string name="steak_platter_card">מנת סטייק</string>
-    <string name="author_unknown_card">מחבר: לא ידוע</string>
+    <string name="author_unknown_card">שם המחבר: %s</string>
     <string name="view_details_card">צפה בפרטים</string>
     <string name="edit_card">ערוך</string>
     <string name="delete_card1">מחק</string>
     <string name="edit_details">ערוך פרטים</string>
     <string name="image_too_large">התמונה גדולה מדי (מקסימום 2MB). בחר תמונה קטנה יותר.</string>
     <string name="fill_all_fields_message">יש למלא את כל השדות לפני אישור</string>
-
+    <string name="Unknown_message">לא ידוע</string>
 
 </resources>

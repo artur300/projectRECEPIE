@@ -18,6 +18,28 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent">
 
+
+
+
+
+        <ImageView
+            android:id="@+id/btn_share"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_marginEnd="16dp"
+            android:src="@drawable/share"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:tint="@color/beige" />
+
+
+
+
+
+
+
+
         <TextView
             android:id="@+id/header_title"
             android:layout_width="wrap_content"
@@ -65,7 +87,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/food_name_view"
-                android:textSize="24sp"
+                android:textSize="28sp"
                 android:textStyle="bold"
                 android:layout_gravity="center_horizontal"
                 android:layout_marginBottom="8dp"
@@ -79,6 +101,7 @@
                 android:text="@string/author_name_unknown_view"
                 android:textSize="18sp"
                 android:textStyle="italic"
+                android:layout_gravity="center_horizontal"
                 android:layout_marginBottom="8dp"
                 android:textColor="@color/bright_orange" />
 
@@ -99,7 +122,7 @@
                     android:focusable="false"
                     android:cursorVisible="false"
                     android:gravity="top"
-                    android:textColor="@color/coral_red"
+                    android:textColor="@color/black"
                     android:textSize="16sp" />
             </com.google.android.material.textfield.TextInputLayout>
 
@@ -119,19 +142,11 @@
                     android:focusable="false"
                     android:cursorVisible="false"
                     android:gravity="top"
-                    android:textColor="@color/coral_red"
+                    android:textColor="@color/black"
                     android:textSize="16sp" />
             </com.google.android.material.textfield.TextInputLayout>
 
-            <!-- Delete Button -->
-            <Button
-                android:id="@+id/btn_delete"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="@string/delete_view"
-                android:layout_marginTop="24dp"
-                android:backgroundTint="@color/coral_red"
-                android:textColor="@android:color/white" />
+
 
             <!-- Edit Details Button -->
             <Button
@@ -152,6 +167,18 @@
                 android:layout_marginTop="24dp"
                 android:backgroundTint="@color/green"
                 android:textColor="@android:color/white" />
+
+
+            <!-- Delete Button -->
+            <Button
+                android:id="@+id/btn_delete"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/delete_view"
+                android:layout_marginTop="24dp"
+                android:backgroundTint="@color/coral_red"
+                android:textColor="@android:color/white" />
+
         </LinearLayout>
     </ScrollView>
 
