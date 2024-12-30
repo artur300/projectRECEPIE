@@ -16,6 +16,7 @@ import com.example.ap.R
 import com.example.ap.UI.add.add_button_animation
 import com.example.ap.UI.itemViewModel
 import com.example.ap.databinding.RecipeDetailsBinding
+import android.widget.Toast
 
 // RecipeDetailsFragment: מסך שמציג את הפרטים המלאים של מתכון מסוים.
 @Suppress("DEPRECATION")
@@ -66,6 +67,7 @@ class RecipeDetailsFragment : Fragment() {
         binding.btnDelete.setOnClickListener {
             item?.let {
                 viewModel.deleteItem(it) // מחיקת הפריט דרך ה-ViewModel.
+                Toast.makeText(requireContext(), getString(R.string.item_updated), Toast.LENGTH_SHORT).show()
                 findNavController().navigate(R.id.action_recipeDetailsFragment2_to_allItemsFragment) // חזרה לרשימת הפריטים.
             }
         }

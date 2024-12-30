@@ -14,6 +14,7 @@ import com.example.ap.R
 import com.example.ap.UI.add.add_button_animation
 import com.example.ap.UI.itemViewModel
 import com.example.ap.databinding.AllRecipeListBinding
+import android.widget.Toast
 
 // AllItemsFragment: מסך שמציג את כל הפריטים (רשימת המתכונים).
 class AllItemsFragment : Fragment() {
@@ -58,6 +59,7 @@ class AllItemsFragment : Fragment() {
             onDelete = { item ->
                 // מחיקת פריט מהרשימה.
                 viewModel.deleteItem(item) // הרשימה מתעדכנת אוטומטית דרך ה-LiveData.
+                Toast.makeText(requireContext(), getString(R.string.item_deleted), Toast.LENGTH_SHORT).show()
             },
             onDetails = { item ->
                 // מעבר למסך פרטי הפריט.

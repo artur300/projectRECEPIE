@@ -35,4 +35,10 @@
     <string name="fill_all_fields_message">fill all fields</string>
     <string name="Unknown_message">Unknown</string>
     <string name="share">share</string>
+    <string name="item_added">Item added successfully!</string>
+    <string name="item_deleted">Item deleted successfully!</string>
+    <string name="item_updated">Item updated successfully!</string>
+    <string name="add_recipe">Add Recipe</string>
+    <string name="update_recipe">Update Recipe</string>
+
 </resources>

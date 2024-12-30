@@ -46,7 +46,7 @@
             android:layout_marginBottom="8dp"
             android:paddingTop="4dp"
             android:text="@string/author_unknown_card"
-            android:textColor="@color/bright_orange"
+            android:textColor="@color/coral_red"
             android:textSize="16sp"
             android:textStyle="italic" />
 

@@ -103,7 +103,7 @@
                 android:textStyle="italic"
                 android:layout_gravity="center_horizontal"
                 android:layout_marginBottom="8dp"
-                android:textColor="@color/bright_orange" />
+                android:textColor="@color/coral_red" />
 
             <!-- Ingredients -->
             <com.google.android.material.textfield.TextInputLayout

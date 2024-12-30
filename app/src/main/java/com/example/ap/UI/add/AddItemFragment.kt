@@ -13,12 +13,14 @@ import androidx.activity.result.contract.ActivityResultContracts
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
 import com.example.ap.databinding.AddRecipeBinding
-import android.widget.Toast
 import androidx.fragment.app.activityViewModels
 import com.example.ap.data.model.Item
 import com.example.ap.R
 import com.example.ap.UI.itemViewModel
 import com.example.ap.utils.ValidationUtils
+import com.bumptech.glide.Glide
+import android.widget.Toast
+
 
 // AddItemFragment: מסך שמאפשר למשתמש להוסיף או לערוך מתכון.
 class AddItemFragment : Fragment() {
@@ -42,12 +44,18 @@ class AddItemFragment : Fragment() {
                 val maxSize = 2 * 1024 * 1024 // גודל תמונה מקסימלי: 2MB.
 
                 if (fileSize > maxSize) {
-                    // הצגת הודעה אם התמונה גדולה מדי.
-                    Toast.makeText(
-                        requireContext(),
-                        getString(R.string.image_too_large),
-                        Toast.LENGTH_LONG
-                    ).show()
+                    // קיבוץ התמונה בעזרת Glide
+                    Glide.with(this)
+                        .asBitmap()
+                        .load(it)
+                        .override(500, 500) // התאמה לגודל מרבי
+                        .into(binding.foodImagePreview)
+
+                    // שמירת כתובת התמונה
+                    requireActivity().contentResolver.takePersistableUriPermission(
+                        uri, Intent.FLAG_GRANT_READ_URI_PERMISSION
+                    )
+                    imageUri = uri
                 } else {
                     // הצגת התמונה בתצוגה ושמירת הכתובת שלה.
                     binding.foodImagePreview.setImageURI(uri)
@@ -58,6 +66,7 @@ class AddItemFragment : Fragment() {
                 }
             }
         }
+
 
     // יצירת עיצוב המסך.
     override fun onCreateView(
@@ -83,7 +92,7 @@ class AddItemFragment : Fragment() {
         }
 
         // שינוי הטקסט של הכפתור לפי מצב (הוספה או עריכה).
-        binding.btnAddFood.text = if (itemToEdit == null) "הוסף מתכון" else "עדכן מתכון"
+        binding.btnAddFood.text = if (itemToEdit == null) getString(R.string.add_recipe) else getString(R.string.update_recipe)
 
         // לוגיקה ללחיצה על כפתור הוספה/עדכון.
         binding.btnAddFood.setOnClickListener {
@@ -99,10 +108,12 @@ class AddItemFragment : Fragment() {
                 if (itemToEdit == null) {
                     // הוספת מתכון חדש.
                     viewModel.addItem(newItem)
+                    Toast.makeText(requireContext(), getString(R.string.item_added), Toast.LENGTH_SHORT).show()
                 } else {
                     // מחיקת המתכון הישן והוספת המתכון החדש.
                     viewModel.deleteItem(itemToEdit!!)
                     viewModel.addItem(newItem)
+                    Toast.makeText(requireContext(), getString(R.string.item_updated), Toast.LENGTH_SHORT).show()
                 }
 
                 // מעבר למסך שמציג את כל המתכונים.
