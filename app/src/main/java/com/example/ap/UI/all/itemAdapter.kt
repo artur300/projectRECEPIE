@@ -9,6 +9,7 @@ import com.example.ap.databinding.RecipeCardBinding
 import com.bumptech.glide.Glide
 import com.example.ap.R
 import com.example.ap.data.model.Item
+import com.example.ap.utils.showFullscreenImage
 
 // ItemAdapter: מתאם לרשימה שמציג את פריטי המתכונים ב-RecyclerView.
 class ItemAdapter(
@@ -33,6 +34,18 @@ class ItemAdapter(
             Glide.with(binding.root.context)
                 .load(item.imageUri)
                 .into(binding.foodImage)
+
+
+
+            // הגדרת פעולה ללחיצה על התמונה להצגת התמונה במסך מלא.
+            binding.foodImage.setOnClickListener {
+                item.imageUri?.let { uri ->
+                    showFullscreenImage(context, uri)
+                }
+            }
+
+
+
 
             // הגדרת פעולות ללחצנים: עריכה, מחיקה, והצגת פרטים.
             binding.btnEdit.setOnClickListener {

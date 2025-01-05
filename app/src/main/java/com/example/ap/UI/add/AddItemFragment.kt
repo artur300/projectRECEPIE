@@ -1,7 +1,6 @@
 @file:Suppress("SpellCheckingInspection") // ביטול בדיקת שגיאות כתיב בקובץ
 
 package com.example.ap.UI.add
-
 import android.content.Intent
 import android.net.Uri
 import android.os.Bundle
@@ -81,7 +80,7 @@ class AddItemFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
         // אם מדובר בעריכת פריט, מילוי השדות במידע הקיים.
-        itemToEdit = arguments?.getParcelable("item")
+        itemToEdit = arguments?.getParcelable("item", Item::class.java)
         itemToEdit?.let { item ->
             binding.foodNameInput.setText(item.foodName)
             binding.authorNameInput.setText(item.authorName)

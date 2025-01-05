@@ -17,6 +17,7 @@ import com.example.ap.UI.add.add_button_animation
 import com.example.ap.UI.itemViewModel
 import com.example.ap.databinding.RecipeDetailsBinding
 import android.widget.Toast
+import com.example.ap.utils.showFullscreenImage
 
 // RecipeDetailsFragment: מסך שמציג את הפרטים המלאים של מתכון מסוים.
 @Suppress("DEPRECATION")
@@ -61,7 +62,17 @@ class RecipeDetailsFragment : Fragment() {
             Glide.with(this)
                 .load(it.imageUri)
                 .into(binding.foodImage)
+
+
+            binding.foodImage.setOnClickListener { _ ->
+                it.imageUri?.let { uri ->
+                    showFullscreenImage(requireContext(), uri)
+                }
+            }
         }
+
+
+
 
         // לחצן מחיקת המתכון.
         binding.btnDelete.setOnClickListener {
