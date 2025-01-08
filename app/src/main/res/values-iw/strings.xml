@@ -42,5 +42,12 @@
     <string name="add_recipe">הוסף מתכון</string>
     <string name="update_recipe">עדכן מתכון</string>
     <string name="tap_to_enlarge_image">לחץ להגדלת התמונה</string>
+    <string name="close">סגור</string>
+    <string name="full_screen_image">תמונה במסך מלא</string>
+    <string name="menu_icon">אייקון תפריט</string>
+    <string name="food_image_1">תמונת מאכל</string>
+    <string name="share_button">כפתור שיתוף</string>
+    <string name="logo">לוגו</string>
+
 
 </resources>

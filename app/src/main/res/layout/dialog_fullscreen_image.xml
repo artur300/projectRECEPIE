@@ -7,15 +7,14 @@
     android:layout_margin="0dp">
 
 
-    <!-- התמונה המוגדלת -->
     <ImageView
         android:id="@+id/fullscreenImage"
         android:layout_width="wrap_content"
-    android:layout_height="wrap_content"
-    android:layout_centerInParent="true"
-    android:scaleType="fitCenter" />
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:contentDescription="@string/full_screen_image"
+        android:scaleType="fitCenter" />
 
-    <!-- כפתור סגירה -->
     <ImageView
         android:id="@+id/closeButton"
         android:layout_width="48dp"
@@ -23,6 +22,6 @@
         android:layout_alignParentEnd="true"
         android:layout_margin="16dp"
         android:src="@drawable/close"
-        android:contentDescription="Close"
+        android:contentDescription="@string/close"
         android:background="?attr/selectableItemBackgroundBorderless" />
 </RelativeLayout>

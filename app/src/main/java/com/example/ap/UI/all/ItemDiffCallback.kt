@@ -11,18 +11,14 @@ import com.example.ap.data.model.Item
 //*******************************************
 
 
-// ItemDiffCallback: מחלקה שמספקת מנגנון להשוואה בין פריטים ברשימה (RecyclerView).
-// המטרה היא לזהות שינויים ברשימה בצורה יעילה וליצור אנימציות מתאימות (כמו מחיקה, הוספה או שינוי).
 class ItemDiffCallback : DiffUtil.ItemCallback<Item>() {
 
-    // פונקציה שבודקת אם שני פריטים הם אותם פריטים לפי ה-ID שלהם.
     override fun areItemsTheSame(oldItem: Item, newItem: Item): Boolean {
-        return oldItem.id == newItem.id // השוואת מזהים ייחודיים (ID).
+        return oldItem.id == newItem.id
     }
 
-    // פונקציה שבודקת אם התוכן של שני פריטים זהה לחלוטין.
     override fun areContentsTheSame(oldItem: Item, newItem: Item): Boolean {
-        return oldItem == newItem // השוואה מלאה בין שני הפריטים.
+        return oldItem == newItem
     }
 }
 

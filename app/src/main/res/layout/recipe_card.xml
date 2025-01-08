@@ -18,8 +18,6 @@
         android:orientation="vertical"
         android:padding="12dp">
 
-
-        <!-- שם המנה -->
         <TextView
             android:id="@+id/zoom_image_prompt"
             android:layout_width="wrap_content"
@@ -32,21 +30,15 @@
             android:textStyle="bold"
             tools:ignore="SmallSp" />
 
-
-
-        <!-- תמונה -->
         <ImageView
             android:id="@+id/food_image"
             android:layout_width="match_parent"
             android:layout_height="200dp"
+            android:contentDescription="@string/food_image_1"
             android:scaleType="centerCrop"
             android:src="@drawable/ic_launcher_foreground" />
 
 
-
-
-
-        <!-- שם המנה -->
         <TextView
             android:id="@+id/food_name"
             android:layout_width="wrap_content"
@@ -58,7 +50,6 @@
             android:textSize="28sp"
             android:textStyle="bold" />
 
-        <!-- שם המחבר -->
         <TextView
             android:id="@+id/author_name"
             android:layout_width="wrap_content"
@@ -69,9 +60,8 @@
             android:text="@string/author_unknown_card"
             android:textColor="@color/coral_red"
             android:textSize="16sp"
-            android:textStyle="italic" />
+             />
 
-        <!-- כפתור "פרטים נוספים" -->
         <com.google.android.material.button.MaterialButton
             android:id="@+id/btn_view_details"
             style="@style/Widget.MaterialComponents.Button.OutlinedButton"
@@ -84,7 +74,6 @@
             app:strokeColor="@color/bright_orange"
             app:strokeWidth="1dp" />
 
-        <!-- כפתור "ערוך" -->
         <com.google.android.material.button.MaterialButton
             android:id="@+id/btn_edit"
             style="@style/Widget.MaterialComponents.Button.OutlinedButton"
@@ -97,7 +86,6 @@
             app:strokeColor="@color/bright_orange"
             app:strokeWidth="1dp" />
 
-        <!-- כפתור "מחיקה" -->
         <com.google.android.material.button.MaterialButton
             android:id="@+id/btn_delete"
             style="@style/Widget.MaterialComponents.Button"

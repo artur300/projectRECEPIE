@@ -2,11 +2,11 @@
 <androidx.constraintlayout.widget.ConstraintLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     >
 
-    <!-- מלבן ירוק עליון -->
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/header"
         android:layout_width="match_parent"
@@ -29,10 +29,10 @@
             android:textStyle="bold"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintEnd_toEndOf="parent" />
+            app:layout_constraintEnd_toEndOf="parent"
+            tools:ignore="HardcodedText" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 
-    <!-- תוכן הטופס -->
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="0dp"
@@ -49,7 +49,6 @@
             android:padding="16dp"
             android:background="@color/beige">
 
-            <!-- Food Name Input -->
             <com.google.android.material.textfield.TextInputLayout
                 android:id="@+id/food_name_input_layout"
                 android:layout_width="match_parent"
@@ -67,7 +66,6 @@
                     android:textSize="16sp" />
             </com.google.android.material.textfield.TextInputLayout>
 
-            <!-- Author Name Input -->
             <com.google.android.material.textfield.TextInputLayout
                 android:id="@+id/author_name_input_layout"
                 android:layout_width="match_parent"
@@ -84,7 +82,6 @@
                     android:textSize="16sp" />
             </com.google.android.material.textfield.TextInputLayout>
 
-            <!-- Food Description Input -->
             <com.google.android.material.textfield.TextInputLayout
                 android:id="@+id/food_description_input_layout"
                 android:layout_width="match_parent"
@@ -104,7 +101,6 @@
                     android:textSize="16sp" />
             </com.google.android.material.textfield.TextInputLayout>
 
-            <!-- Ingredients Input -->
             <com.google.android.material.textfield.TextInputLayout
                 android:id="@+id/ingredients_description_input_layout"
                 android:layout_width="match_parent"
@@ -124,7 +120,6 @@
                     android:textSize="16sp" />
             </com.google.android.material.textfield.TextInputLayout>
 
-            <!-- Button to Pick Image -->
             <Button
                 android:id="@+id/btn_pick_image"
                 android:layout_width="match_parent"
@@ -134,7 +129,6 @@
                 android:text="@string/pick_image"
                 android:textColor="@android:color/white" />
 
-            <!-- Image Preview -->
             <ImageView
                 android:id="@+id/food_image_preview"
                 android:layout_width="match_parent"
@@ -144,7 +138,6 @@
                 android:src="@drawable/cookbook"
                 android:contentDescription="@string/preview" />
 
-            <!-- Add/Confirm Button -->
             <Button
                 android:id="@+id/btn_add_food"
                 android:layout_width="match_parent"
@@ -154,7 +147,6 @@
                 android:text="@string/add_food_confirm"
                 android:textColor="@android:color/white" />
 
-            <!-- Back Button -->
             <Button
                 android:id="@+id/btn_back"
                 android:layout_width="match_parent"

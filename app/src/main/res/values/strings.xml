@@ -41,4 +41,10 @@
     <string name="add_recipe">Add Recipe</string>
     <string name="update_recipe">Update Recipe</string>
     <string name="tap_to_enlarge_image">Tap to enlarge image</string>
+    <string name="close">Close</string>
+    <string name="full_screen_image">full screen Image</string>
+    <string name="menu_icon">menu_icon</string>
+    <string name="food_image_1">food image</string>
+    <string name="share_button">share button</string>
+    <string name="logo">logo</string>
 </resources>

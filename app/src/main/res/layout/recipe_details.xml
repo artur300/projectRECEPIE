@@ -8,7 +8,6 @@
     android:background="@color/beige"
     tools:context=".UI.single.RecipeDetailsFragment">
 
-    <!-- מלבן ירוק עליון -->
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/header"
         android:layout_width="match_parent"
@@ -18,26 +17,17 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent">
 
-
-
-
-
         <ImageView
             android:id="@+id/btn_share"
             android:layout_width="40dp"
             android:layout_height="40dp"
             android:layout_marginEnd="16dp"
+            android:contentDescription="@string/share_button"
             android:src="@drawable/share"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintBottom_toBottomOf="parent"
             app:tint="@color/beige" />
-
-
-
-
-
-
 
 
         <TextView
@@ -53,10 +43,10 @@
             android:textStyle="bold"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintEnd_toEndOf="parent" />
+            app:layout_constraintEnd_toEndOf="parent"
+            tools:ignore="HardcodedText" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 
-    <!-- תוכן גלילה -->
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="0dp"
@@ -72,8 +62,6 @@
             android:layout_height="wrap_content"
             android:orientation="vertical">
 
-
-            <!-- שם המנה -->
             <TextView
                 android:id="@+id/zoom_image_prompt"
                 android:layout_width="wrap_content"
@@ -87,9 +75,6 @@
                 tools:ignore="SmallSp" />
 
 
-
-
-            <!-- Image View -->
             <ImageView
                 android:id="@+id/food_image"
                 android:layout_width="match_parent"
@@ -99,12 +84,6 @@
                 android:contentDescription="@string/food_image_view" />
 
 
-
-
-
-
-
-            <!-- Food Name -->
             <TextView
                 android:id="@+id/food_name"
                 android:layout_width="wrap_content"
@@ -116,19 +95,16 @@
                 android:layout_marginBottom="8dp"
                 android:textColor="@color/green" />
 
-            <!-- Author Name -->
             <TextView
                 android:id="@+id/author_name"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/author_name_unknown_view"
                 android:textSize="18sp"
-                android:textStyle="italic"
                 android:layout_gravity="center_horizontal"
                 android:layout_marginBottom="8dp"
                 android:textColor="@color/coral_red" />
 
-            <!-- Ingredients -->
             <com.google.android.material.textfield.TextInputLayout
                 android:id="@+id/ingredients_layout"
                 android:layout_width="match_parent"
@@ -149,7 +125,6 @@
                     android:textSize="16sp" />
             </com.google.android.material.textfield.TextInputLayout>
 
-            <!-- Food Description -->
             <com.google.android.material.textfield.TextInputLayout
                 android:id="@+id/food_description_layout"
                 android:layout_width="match_parent"
@@ -171,7 +146,6 @@
 
 
 
-            <!-- Edit Details Button -->
             <Button
                 android:id="@+id/btn_edit_details"
                 android:layout_width="match_parent"
@@ -181,7 +155,6 @@
                 android:backgroundTint="@color/green"
                 android:textColor="@android:color/white" />
 
-            <!-- Back Button -->
             <Button
                 android:id="@+id/btn_back_to_card"
                 android:layout_width="match_parent"
@@ -192,7 +165,6 @@
                 android:textColor="@android:color/white" />
 
 
-            <!-- Delete Button -->
             <Button
                 android:id="@+id/btn_delete"
                 android:layout_width="match_parent"
