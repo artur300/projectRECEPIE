@@ -72,6 +72,23 @@
             android:layout_height="wrap_content"
             android:orientation="vertical">
 
+
+            <!-- שם המנה -->
+            <TextView
+                android:id="@+id/zoom_image_prompt"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:paddingBottom="8dp"
+                android:text="@string/tap_to_enlarge_image"
+                android:textColor="@color/green"
+                android:textSize="10sp"
+                android:textStyle="bold"
+                tools:ignore="SmallSp" />
+
+
+
+
             <!-- Image View -->
             <ImageView
                 android:id="@+id/food_image"
@@ -80,6 +97,12 @@
                 android:scaleType="centerCrop"
                 android:layout_marginBottom="16dp"
                 android:contentDescription="@string/food_image_view" />
+
+
+
+
+
+
 
             <!-- Food Name -->
             <TextView

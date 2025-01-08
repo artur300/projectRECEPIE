@@ -40,5 +40,5 @@
     <string name="item_updated">Item updated successfully!</string>
     <string name="add_recipe">Add Recipe</string>
     <string name="update_recipe">Update Recipe</string>
-
+    <string name="tap_to_enlarge_image">Tap to enlarge image</string>
 </resources>

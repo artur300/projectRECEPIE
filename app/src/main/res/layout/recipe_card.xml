@@ -1,6 +1,7 @@
 <com.google.android.material.card.MaterialCardView
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:layout_margin="12dp"
@@ -17,6 +18,22 @@
         android:orientation="vertical"
         android:padding="12dp">
 
+
+        <!-- שם המנה -->
+        <TextView
+            android:id="@+id/zoom_image_prompt"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:paddingBottom="8dp"
+            android:text="@string/tap_to_enlarge_image"
+            android:textColor="@color/green"
+            android:textSize="10sp"
+            android:textStyle="bold"
+            tools:ignore="SmallSp" />
+
+
+
         <!-- תמונה -->
         <ImageView
             android:id="@+id/food_image"
@@ -24,6 +41,10 @@
             android:layout_height="200dp"
             android:scaleType="centerCrop"
             android:src="@drawable/ic_launcher_foreground" />
+
+
+
+
 
         <!-- שם המנה -->
         <TextView

@@ -41,5 +41,6 @@
     <string name="item_updated">הפריט עודכן בהצלחה!</string>
     <string name="add_recipe">הוסף מתכון</string>
     <string name="update_recipe">עדכן מתכון</string>
+    <string name="tap_to_enlarge_image">לחץ להגדלת התמונה</string>
 
 </resources>
