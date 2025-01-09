@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name">AP</string>
+    <string name="app_name">Recipe Master</string>
     <string name="enter_food_name">הזן את שם המנה</string>
     <string name="enter_author_name">הזן את שם המחבר</string>
     <string name="enter_description">הזן תיאור</string>

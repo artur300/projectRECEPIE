@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">AP</string>
+    <string name="app_name">Recipe Master</string>
     <string name="enter_food_name">Enter Food Name</string>
     <string name="enter_author_name">Enter Author Name</string>
     <string name="enter_description">Enter description</string>
