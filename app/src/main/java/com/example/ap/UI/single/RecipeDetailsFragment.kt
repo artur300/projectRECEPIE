@@ -124,10 +124,6 @@ class RecipeDetailsFragment : Fragment() {
         }
 
 
-
-
-
-
     }
 
     // ניקוי ה-Binding למניעת דליפות זיכרון.
